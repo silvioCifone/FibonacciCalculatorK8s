@@ -17,7 +17,7 @@ before_install:
   - gcloud config set compute/zone europe-central2-a
   - gcloud container clusters get-credentials fibonaccicalculator-cluster
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker build -t silviocifone/FibonacciCalculatorK8s-test -f ./client/Dockerfile.dev ./client
+  - docker build -t silviocifone/fibonaccicalculatork8s-test -f ./client/Dockerfile.dev ./client
 
 script:
   - docker run -e CI=true silviocifone/FibonacciCalculatorK8s-test npm test
